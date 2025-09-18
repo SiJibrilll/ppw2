@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CardController;
+use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
         return view('welcome');
@@ -13,4 +14,6 @@ Route::get('/home', function () {
     ]);
 });
 
-Route::get('/cards', [CardController::class, 'index']);
+Route::get('/cards', [CardController::class, 'index'])->name('cards');
+
+Route::resource('books', BookController::class);
